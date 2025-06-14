@@ -2,9 +2,9 @@ genezioVersion: 1.0.0
 name: powerlifting-meet-backend
 region: us-east-1
 services:
-    - language: python
-      name: powerlifting-backend
-      path: .
-      run: gunicorn -w 4 -b 0.0.0.0:8080 app:app
-      runtime: python3.11
-      type: Backend
+  - language: python
+    name: powerlifting-backend
+    path: .
+    run: gunicorn -w 4 -b 0.0.0.0:8080 app:app
+    runtime: python3.11
+    type: Backend
