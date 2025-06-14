@@ -6,7 +6,7 @@ name: powerlifting-meet-backend
 
 # Specifies the version of the Genezio YAML schema to use.
 # This must match the version expected by your Genezio CLI.
-yamlVersion: 3.0.0 # Updated to 3.0.0 as required by CLI v3.2.9
+yamlVersion: 3 # Updated to a number as required by CLI v3.2.9
 
 # Defines the region where your project will be deployed.
 # This can sometimes help with parsing during GitHub imports.
