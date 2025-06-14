@@ -1,40 +1,10 @@
-# Genezio configuration file for the Powerlifting Meet Backend
-# Updated for Genezio CLI version 3.x.x
-
-# Required: A unique name for your overall Genezio project/application.
 name: powerlifting-meet-backend
-
-# Specifies the version of the Genezio YAML schema to use.
-# This must match the version expected by your Genezio CLI.
-yamlVersion: 3.0.0 # Updated to 3.0.0 as required by CLI v3.2.9
-
-# Defines the region where your project will be deployed.
-# This can sometimes help with parsing during GitHub imports.
-region: us-east-1 # Added explicit region
-
-# Defines the services to be deployed.
-# This should be an object (dictionary), where each key is a service name.
+region: us-east-1
 services:
-  # This is the configuration for your Flask backend service.
-  # The key 'powerlifting-backend' is the service identifier within Genezio.
-  powerlifting-backend: # Changed from array item to a key within 'services' object
-    path: . # The path to your service code relative to the genezio.yaml file ('.' means current directory)
-    type: Backend # Specifies this is a backend service
-    
-    # Python-specific configuration
-    language: python
-    # Crucially, set the runtime to match your local Python version.
-    # This ensures Genezio uses a compatible environment for your dependencies.
-    runtime: python3.11 # Keeping this as 3.11 as per our previous discussion
-
-    # Commands for building and running your application.
-    # Genezio often auto-detects these for Flask, but it's good to be explicit.
-    # 'install' is usually handled automatically by Genezio for Python projects with requirements.txt
-    # 'build' is typically not needed for simple Flask apps beyond dependency installation
-    run: gunicorn -w 4 -b 0.0.0.0:8080 app:app # Recommended way to run Flask apps in production
-    
-    # Environment variables for your service.
-    # Remember to set DATABASE_URL in the Genezio dashboard's environment variables.
-    # This section is for default or non-sensitive variables if needed in the future.
-    # env:
-    #   MY_VARIABLE: "some_value"
+    powerlifting-backend:
+        language: python
+        path: .
+        run: gunicorn -w 4 -b 0.0.0.0:8080 app:app
+        runtime: python3.11
+        type: Backend
+yamlVersion: 3.0.0
