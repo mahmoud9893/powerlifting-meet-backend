@@ -1,31 +1,10 @@
-# Genezio configuration file for the Powerlifting Meet Backend
-
-# Specifies the version of the Genezio CLI and platform features to use.
-# It's good practice to keep this updated to the latest stable version.
 genezioVersion: 1.0.0
-
-# Defines the services to be deployed.
+name: powerlifting-meet-backend
+region: us-east-1
 services:
-  # This is the configuration for your Flask backend service.
-  - name: powerlifting-backend # A unique name for your service on Genezio
-    path: . # The path to your service code relative to the genezio.yaml file ('.' means current directory)
-    type: Backend # Specifies this is a backend service
-    
-    # Python-specific configuration
-    language: python
-    # Crucially, set the runtime to match your local Python version.
-    # This ensures Genezio uses a compatible environment for your dependencies.
-    # We are setting it to python3.11 to match your local setup.
-    runtime: python3.11
-    
-    # Commands for building and running your application.
-    # Genezio often auto-detects these for Flask, but it's good to be explicit.
-    # install: pip install -r requirements.txt # Genezio usually handles this automatically for Python projects
-    # build: # No specific build step needed for simple Flask apps beyond dependency installation
-    run: gunicorn -w 4 -b 0.0.0.0:8080 app:app # Recommended way to run Flask apps in production
-    
-    # Environment variables for your service.
-    # Remember to set DATABASE_URL in the Genezio dashboard's environment variables.
-    # This section is for default or non-sensitive variables if needed in the future.
-    # env:
-    #   MY_VARIABLE: "some_value"
+    - language: python
+      name: powerlifting-backend
+      path: .
+      run: gunicorn -w 4 -b 0.0.0.0:8080 app:app
+      runtime: python3.11
+      type: Backend
